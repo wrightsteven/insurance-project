@@ -12,19 +12,21 @@ sizeLbl = tk.Label(root, text="Number of individuals to be insured: ")
 sizeLbl.grid(column=0, row=0)
 
 sizeLbl = tk.Entry(root, width=10)
-sizeLbl.insert(0, '0')
+sizeLbl.insert(0, '1')
 sizeLbl.grid(column=2, row=0)
 
 countryLbl = tk.Label(root, text="Select a country: ")
 countryLbl.grid(column=0, row=2)
 
-runButton = tk.Button(root, text="Run")
-runButton.grid(column=3, row=7)
+calcButton = tk.Button(root, text="Calculate")
+calcButton.configure(command=lambda:run())
+calcButton.grid(column=3, row=7)
 
 estimateLbl = tk.Label(root,text="")
 estimateLbl.grid(column=4, row=5)
 
 countrySelect = ttk.Combobox(root, values=countryList)
+countrySelect.set("US")
 countrySelect.grid(column=2,row=2)
 
 # Input data
@@ -177,9 +179,7 @@ class expectedClaims():
 def run():
     e = expectedClaims()
     totalClaims = (size * e.claims(country) * e.risk(country))
-    estimateLbl['text'] = "Total expected claims = " + totalClaims
+    estimateLbl['text'] = "Total expected claims = ", totalClaims
     print("Expected total claims: ", totalClaims)
-
-runButton.configure(command=lambda:run())
 
 root.mainloop()
