@@ -40,8 +40,8 @@ smokerPctDict = {"US":.2, "Mexico":.25, "Switzerland":.15, "Turkey":.31, "Brazil
 obesePctDict = {"US":.33, "Mexico":.38, "Switzerland":.21, "Turkey":.32, "Brazil":.27, "Sudan":.13, "Cambodia":.35}
 smokerAndObesePctDict = {"US":.03, "Mexico":.08, "Switzerland":.03, "Turkey":.04, "Brazil":.055, "Sudan":.09, "Cambodia":.09}
 
-size = int(sizeLbl.get())
-country = str(countrySelect.get())
+# size = int(sizeLbl.get())
+# country = str(countrySelect.get())
 
 # Calculate expected claim amount
 class expectedClaims():
@@ -177,6 +177,8 @@ class expectedClaims():
         return self.avgClaim
 
 def run():
+    size = int(sizeLbl.get())
+    country = str(countrySelect.get())
     e = expectedClaims()
     totalClaims = (size * e.claims(country) * e.risk(country))
     estimateLbl['text'] = "Total expected claims = ", totalClaims
