@@ -9,25 +9,25 @@ root.title("Expected Claim Calculator")
 root.geometry('800x800')
 
 sizeLbl = tk.Label(root, text="Number of individuals to be insured: ")
-sizeLbl.place(relx = .3, rely = .1)
+sizeLbl.place(relx = .1, rely = .1)
 
-sizeLbl = tk.Entry(root, width=10)
-sizeLbl.insert(0, '1')
-sizeLbl.place(relx = .35, rely = .15)
+sizeEntry = tk.Entry(root, width=10)
+sizeEntry.insert(0, '1')
+sizeEntry.place(relx = .55, rely = .1)
 
 countryLbl = tk.Label(root, text="Select a country: ")
-countryLbl.place(relx = .35, rely = .25)
+countryLbl.place(relx = .1, rely = .2)
 
 calcButton = tk.Button(root, text="Calculate")
 calcButton.configure(command=lambda:run())
-calcButton.place(relx = .4, rely = .4)
+calcButton.place(relx = .2, rely = .3)
 
 estimateLbl = tk.Label(root,text="")
-estimateLbl.place(relx = .35, rely = .5)
+estimateLbl.place(relx = .35, rely = .3)
 
 countrySelect = ttk.Combobox(root, values=countryList)
 countrySelect.set("US")
-countrySelect.place(relx = .3,rely = .3)
+countrySelect.place(relx = .45,rely = .2)
 
 # Input data
 
@@ -177,7 +177,7 @@ class expectedClaims():
         return self.avgClaim
 
 def run():
-    size = int(sizeLbl.get())
+    size = int(sizeEntry.get())
     country = str(countrySelect.get())
     e = expectedClaims()
     totalClaims = (size * e.claims(country) * e.risk(country))
