@@ -1,6 +1,11 @@
-# insurance-project
-Calculate expected claims based on risk factors and country.
+# Insurance Project
 
-Numbers used are not realistic, for demonstration purposes only.
+Steven Wright
 
-GUI in basic form only, no stylistic design.
+Python 3.7.3
+
+# Usage
+Run command:
+
+```
+python3 insuranceProjectGUI.py
